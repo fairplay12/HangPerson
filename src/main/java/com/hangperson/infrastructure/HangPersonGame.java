@@ -17,7 +17,7 @@ public class HangPersonGame {
     }
 
     public boolean guess(String letter) {
-        if (letter == null && !letter.matches("[a-zA-Z]"))
+        if (letter == null || !letter.matches("[a-zA-Z]"))
             return false;
         letter = letter.toLowerCase();
         if (this.word.contains(letter) && !this.guesses.contains(letter)) {

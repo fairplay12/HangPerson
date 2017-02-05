@@ -2,9 +2,7 @@ package com.hangperson.controller;
 
 import com.hangperson.infrastructure.GameChecker;
 import com.hangperson.infrastructure.HangPersonGame;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by vova on 05.02.17.
@@ -24,7 +22,7 @@ public class HangPersonController {
     }
 
     @RequestMapping(value = "/guess", method = RequestMethod.POST)
-    public String guess(String letter) {
+    public String guess(@RequestParam String letter) {
         hangPersonGame.guess(letter);
         GameChecker gameChecker = hangPersonGame.checkWinOrLose();
         return gameChecker.toString();
